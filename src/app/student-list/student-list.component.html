@@ -1,0 +1,40 @@
+<button (click)="showAddStudentForm()">მომხმარებლის დამატება <i class="fas fa-user-plus"></i></button>
+<div *ngIf="!showUserForm">
+  <ul class="students">
+    <li *ngFor="let student of students" (click)="selectStudent(student.id)" [class.selected]="student.id == selectedUser?.id">
+      <div>
+        <span class="badge">{{student.id}}</span>{{student.name}}
+      </div>
+      <i (click)="deleteStudent(student.id)" class="fas fa-trash-alt"></i>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="selectedUser">
+  <app-student-detail [student]="selectedUser" (saveEvent)="save($event)"></app-student-detail>
+</div>
+
+<div *ngIf="showUserForm">
+  <div style="margin-top: 20px">
+    <label for="user-name">სახელი: </label>
+    <input id="user-name" [(ngModel)]="studentToAdd.name" placeholder="სახელი">
+  </div>
+  <div class="box">
+    <label for="student-surname">გვარი: </label>
+    <input id="student-surname" [(ngModel)]="studentToAdd.surname" placeholder="გვარი">
+  </div>
+  <div class="box">
+    <label for="student-studentCode">სტუდენტური კოდი: </label>
+    <input id="student-studentCode" [(ngModel)]="studentToAdd.studentCode" placeholder="სტუდენტური კოდი">
+  </div>
+  <div class="box">
+    <label for="student-followingCourses">არჩეული საგნები: </label>
+    <input id="student-followingCourses" [(ngModel)]="studentToAdd.followingCourses" placeholder="არჩეული საგნები">
+  </div>
+  <div class="box">
+    <label for="student-EnrolledYear">ჩარიცხვის თარიღი.: </label>
+    <input id="student-EnrolledYear" [(ngModel)]="studentToAdd.EnrolledYear" placeholder="ჩარიცხვის თარიღი.">
+  </div>
+  <button (click)="addStudent()">შენახვა</button>
+</div>
+

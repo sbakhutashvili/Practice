@@ -1,0 +1,28 @@
+<div *ngIf="student">
+  <h2>{{student.name}} დეტალური ინფორმაცია</h2>
+  <div>
+    <label for="student-id">id: </label>
+    <input id="student-id" [(ngModel)]="student.id" placeholder="id" disabled>
+  </div>
+  <div class="box">
+    <label for="student-name">სახელი: </label>
+    <input id="student-name" [(ngModel)]="student.name" placeholder="სახელი">
+  </div>
+  <div class="box">
+    <label for="student-surname">გვარი: </label>
+    <input id="student-surname" [(ngModel)]="student.surname" placeholder="გვარი">
+  </div>
+  <div class="box">
+    <label for="student-studentCode">სტუდენტური კოდი: </label>
+    <input id="student-studentCode" [(ngModel)]="student.studentCode" placeholder="სტუდენტური კოდი">
+  </div>
+  <div class="box">
+    <label for="student-followingCourses">არჩეული საგნები: </label>
+    <input id="student-followingCourses" [(ngModel)]="student.followingCourses" placeholder="არჩეული საგნები">
+  </div>
+  <div class="box">
+    <label for="student-EnrolledYear">ჩარიცხვის თარიღი.: </label>
+    <input id="student-EnrolledYear" [(ngModel)]="student.EnrolledYear" placeholder="ჩარიცხვის თარიღი.">
+  </div>
+  <button (click)="save()">შენახვა</button>
+</div>
